@@ -60,35 +60,55 @@
   <audio data-key="74" src="sounds/pew.wav"></audio>
   <audio data-key="75" src="sounds/pew.wav"></audio>
   <audio data-key="76" src="sounds/pew.wav"></audio>
-  <audio data-key="82" src="sounds/pew.wav"></audio>
 
 <script>
+    $(".key").hover(
+        function() {
+            $( this ).addClass( "playing" );
+            play($(this));
+        },
+        function() {
+            $( this ).removeClass( "playing" );
+        }
+    )
 
-    function playSound (event){
-        //console.log(event);
-        const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`)
-        const key = document.querySelector(`.key[data-key="${event.keyCode}"]`)       
-        //console.log(audio);
-        if(!audio) return; //stop from running all together
-        audio.currentTime = 0;
-        audio.play();
-        key.classList.add('playing');
-        //alternative to a setTimeout, don't have to set a specific time - might conflict with time set in style.css class
+    var play = function(res) {
+        var userKey = res.attr("data-key");
+        console.log(`user selected sound #${userKey}`);
+        var audioKey = $("audio").find(`[data-key=${userKey}]`);
+        console.log(`the corresponding audio is #${audioKey}`);
+        if (audioKey == userKey) {
+            console.log(`play sound: #${audioKey}`);
+            audioKey.play();
+        } else {
+            console.log("error");
+        }
+        
     }
-
-    function removeTransition(event) {
-        if(event.propertyName !== 'transform') return; //ends if it is not a transform
-        console.log(event.propertyName);
-        this.classList.remove('playing');
-    }
-
-    const keys = document.querySelectorAll('.key');
-    //cannot just listen to all elements contained in a containing element
-    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-    window.addEventListener('keydown', playSound);
-
 </script>
-
 
 </body>
 </html>
+
+
+<!----------------------TROUBLESHOOTING------------------------
+CURRENT
+ERR 2: sound doesn't play
+    A. console log to test -> audioKey is ALWAYS #65
+    B. set audioKey attr. == userKey -> audioKey is 'undefined'
+    C. use '[attribute=value]' & .find() jQuery method -> returns [object Object]
+    D. 
+
+
+
+
+
+RESOLVED
+ERR 1: JQUERY '$' not recognized 
+    A. contain code in document.ready -> no change
+    B. move jquery script from head to body (above code) -> no change
+    C. grab minified CDN directly from site -> works! 
+
+
+http://keycode.info/
+---------------------------------------------------------------->
