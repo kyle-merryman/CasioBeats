@@ -1,13 +1,12 @@
 html {
     font-size: 10px;
-    background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
-    background-size: cover;
+    /*background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
+    background-size: cover;*/
   }
   
   body,html {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
   }
   
   .keys {
@@ -19,7 +18,7 @@ html {
   }
   
   .key {
-    border: .4rem solid black;
+    border: 0;
     border-radius: .5rem;
     margin: 1rem;
     font-size: 1.5rem;
@@ -28,7 +27,7 @@ html {
     width: 10rem;
     text-align: center;
     color: white;
-    background: rgba(0,0,0,0.4);
+    background: rgba(33, 135, 115,0.5);
     text-shadow: 0 0 .5rem black;
   }
   
@@ -44,8 +43,28 @@ html {
   }
   
   .sound {
+    font-family: sans-serif;
     font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: .1rem;
     color: #ffc600;
+  }
+
+
+  .bungy {
+    background: url(bungy.jpg) bottom center;
+    background-size: cover;
+  }
+
+  .backwav {
+    background: url(wav.jpg) bottom center;
+    background-size: cover;
+  }
+
+  .start {
+    font-family: 'Monoton', cursive;
+  }
+
+  .glitch {
+    font-family: 'Press Start 2P', cursive;
   }

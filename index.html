@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bungy">
 <head>
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
@@ -7,60 +7,62 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+  <script src="bungy.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P|ZCOOL+QingKe+HuangYou" rel="stylesheet">
 </head>
 <body>
 
-
-  <div class="keys">
+  <div class="keys" id="here" style="z-index: inherit 5">
+    <!--<img src="yy.png" alt="balance" id="afk" style="visibility: hidden !important">-->
     <div data-key="65" class="key">
-      <kbd>A</kbd>
-      <span class="sound">clap</span>
-    </div>
-    <div data-key="83" class="key">
-      <kbd>S</kbd>
-      <span class="sound">hihat</span>
-    </div>
-    <div data-key="68" class="key">
-      <kbd>D</kbd>
-      <span class="sound">kick</span>
-    </div>
-    <div data-key="70" class="key">
-      <kbd>F</kbd>
-      <span class="sound">openhat</span>
-    </div>
-    <div data-key="71" class="key">
-      <kbd>G</kbd>
-      <span class="sound">boom</span>
-    </div>
-    <div data-key="72" class="key">
-      <kbd>H</kbd>
-      <span class="sound">ride</span>
-    </div>
-    <div data-key="74" class="key">
-      <kbd>J</kbd>
-      <span class="sound">snare</span>
-    </div>
-    <div data-key="75" class="key">
-      <kbd>K</kbd>
+      <kbd class="start">A</kbd>
       <span class="sound">tom</span>
     </div>
+    <div data-key="83" class="key">
+      <kbd class="start">S</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd class="start">D</kbd>
+      <span class="sound">C2</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd class="start">F</kbd>
+      <span class="sound">C3</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd class="start">G</kbd>
+      <span class="sound">G1</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd class="start">H</kbd>
+      <span class="sound">G2</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd class="start">J</kbd>
+      <span class="sound">G3</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd class="start">K</kbd>
+      <span class="sound">ago</span>
+    </div>
     <div data-key="76" class="key">
-      <kbd>L</kbd>
-      <span class="sound">tink</span>
+      <kbd class="start">L</kbd>
+      <span class="sound">go</span>
     </div>
   </div>
 
-  <audio data-key="65" src="sounds/pew.wav"></audio>
-  <audio data-key="83" src="sounds/pew.wav"></audio>
-  <audio data-key="68" src="sounds/pew.wav"></audio>
-  <audio data-key="70" src="sounds/pew.wav"></audio>
-  <audio data-key="71" src="sounds/pew.wav"></audio>
-  <audio data-key="72" src="sounds/pew.wav"></audio>
-  <audio data-key="74" src="sounds/pew.wav"></audio>
-  <audio data-key="75" src="sounds/pew.wav"></audio>
-  <audio data-key="76" src="sounds/pew.wav"></audio>
-  <audio data-key="82" src="sounds/pew.wav"></audio>
+  <audio data-key="65" src="sounds/Drum Samples/tom3.wav"></audio>
+  <audio data-key="83" src="sounds/Drum Samples/tom4.wav"></audio>
+  <audio data-key="68" src="sounds/Instruments/ELEC PIANO/epianoC2.wav"></audio>
+  <audio data-key="70" src="sounds/Instruments/ELEC PIANO/epianoC3.wav"></audio>
+  <audio data-key="71" src="sounds/Instruments/ELEC PIANO/epianoG1.wav"></audio>
+  <audio data-key="72" src="sounds/Instruments/ELEC PIANO/epianoG2.wav"></audio>
+  <audio data-key="74" src="sounds/Instruments/ELEC PIANO/epianoG3.wav"></audio>
+  <audio data-key="75" src="sounds/Drum Samples/agogo1.wav"></audio>
+  <audio data-key="76" src="sounds/Drum Samples/agogo2.wav"></audio>
+  <audio data-key="82" src="sounds/allKeys.wav" id="allKeys"></audio>
 
 <script>
 
@@ -78,7 +80,7 @@
 
     function removeTransition(event) {
         if(event.propertyName !== 'transform') return; //ends if it is not a transform
-        console.log(event.propertyName);
+        //console.log(event.propertyName);
         this.classList.remove('playing');
     }
 
@@ -86,6 +88,23 @@
     //cannot just listen to all elements contained in a containing element
     keys.forEach(key => key.addEventListener('transitionend', removeTransition));
     window.addEventListener('keydown', playSound);
+    window.addEventListener('keydown', check);
+
+    function check (event){
+      var active = document.querySelectorAll('.keys .playing').length;
+      if (active >= 2){
+        console.log(`${active} keys are active`);
+      } else if (active = 1){
+        console.log(`${active} key is active`);
+      }
+      if (active >= 9 && !eggFound){
+        egg.play();
+        eggFound = true;
+      }
+    }
+
+    var egg = document.getElementById("allKeys"); 
+    let eggFound = false;
 
 </script>
 

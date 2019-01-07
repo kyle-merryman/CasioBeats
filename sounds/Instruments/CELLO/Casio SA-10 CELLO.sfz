@@ -1,0 +1,33 @@
+//  ***** Casio SA-10.sf2 - CELLO *****
+//  Soundfont converted using sfZed
+//  SoundFont version 2.1
+//  E-mu 10K1
+//  For SynthFont Viena
+//  Using SynthFont Viena
+//  Copyright SynthFont Viena
+//  Created 5.5.2009 0:35:52
+//  By SynthFont Viena
+
+
+<region>
+sample=cello2G1.wav
+lokey=f2
+hikey=g#2
+pitch_keycenter=g2
+
+<region>
+sample=cello2C2.wav
+lokey=a2
+hikey=f#3
+pitch_keycenter=c3
+
+<region>
+sample=cello2C3.wav
+lokey=g3
+hikey=f#4
+
+<region>
+sample=cello2C4.wav
+lokey=g4
+hikey=c5
+pitch_keycenter=c5

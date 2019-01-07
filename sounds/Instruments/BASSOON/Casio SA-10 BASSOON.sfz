@@ -1,0 +1,36 @@
+//  ***** Casio SA-10.sf2 - BASSOON *****
+//  Soundfont converted using sfZed
+//  SoundFont version 2.1
+//  E-mu 10K1
+//  For SynthFont Viena
+//  Using SynthFont Viena
+//  Copyright SynthFont Viena
+//  Created 5.5.2009 0:35:52
+//  By SynthFont Viena
+
+
+<group>
+loop_mode=loop_continuous
+
+<region>
+sample=bassoonC2.wav
+lokey=f2
+hikey=d#3
+pitch_keycenter=c3
+
+<region>
+sample=bassoonG2.wav
+lokey=e3
+hikey=a3
+pitch_keycenter=g3
+
+<region>
+sample=bassoonC3.wav
+lokey=a#3
+hikey=f#4
+
+<region>
+sample=bassoonC4.wav
+lokey=g4
+hikey=c5
+pitch_keycenter=c5

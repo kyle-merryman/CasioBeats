@@ -1,0 +1,48 @@
+//  ***** Casio SA-10.sf2 - PIANO *****
+//  Soundfont converted using sfZed
+//  SoundFont version 2.1
+//  E-mu 10K1
+//  For SynthFont Viena
+//  Using SynthFont Viena
+//  Copyright SynthFont Viena
+//  Created 5.5.2009 0:35:52
+//  By SynthFont Viena
+
+
+<group>
+ampeg_release=2
+
+<region>
+sample=pianoG1.wav
+lokey=f2
+hikey=a2
+pitch_keycenter=g2
+
+<region>
+sample=pianoC2.wav
+lokey=a#2
+hikey=d#3
+pitch_keycenter=c3
+
+<region>
+sample=pianoG2.wav
+lokey=e3
+hikey=a3
+pitch_keycenter=g3
+
+<region>
+sample=pianoC3.wav
+lokey=a#3
+hikey=d#4
+
+<region>
+sample=pianoG3.wav
+lokey=e4
+hikey=a4
+pitch_keycenter=g4
+
+<region>
+sample=pianoC4.wav
+lokey=a#4
+hikey=c5
+pitch_keycenter=c5

@@ -7,59 +7,99 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="test.css">
 </head>
 <body>
 
-
+<div class="machine">
   <div class="keys">
-    <div data-key="65" class="key">
+    <div id="65" class="key">
       <kbd>A</kbd>
       <span class="sound">clap</span>
     </div>
-    <div data-key="83" class="key">
+    <div id="83" class="key">
       <kbd>S</kbd>
       <span class="sound">hihat</span>
     </div>
-    <div data-key="68" class="key">
+    <div id="68" class="key">
       <kbd>D</kbd>
       <span class="sound">kick</span>
     </div>
-    <div data-key="70" class="key">
+    <div id="70" class="key">
       <kbd>F</kbd>
       <span class="sound">openhat</span>
     </div>
-    <div data-key="71" class="key">
+    <div id="71" class="key">
       <kbd>G</kbd>
       <span class="sound">boom</span>
     </div>
-    <div data-key="72" class="key">
+    <div id="72" class="key">
       <kbd>H</kbd>
       <span class="sound">ride</span>
     </div>
-    <div data-key="74" class="key">
+    <div id="74" class="key">
       <kbd>J</kbd>
       <span class="sound">snare</span>
     </div>
-    <div data-key="75" class="key">
+    <div id="75" class="key">
       <kbd>K</kbd>
       <span class="sound">tom</span>
     </div>
-    <div data-key="76" class="key">
+    <div id="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+</div>
+
+  <div class="keys">
+    <div id="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div id="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div id="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div id="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div id="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div id="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div id="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div id="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div id="76" class="key">
       <kbd>L</kbd>
       <span class="sound">tink</span>
     </div>
   </div>
 
-  <audio data-key="65" src="sounds/pew.wav"></audio>
-  <audio data-key="83" src="sounds/pew.wav"></audio>
-  <audio data-key="68" src="sounds/pew.wav"></audio>
-  <audio data-key="70" src="sounds/pew.wav"></audio>
-  <audio data-key="71" src="sounds/pew.wav"></audio>
-  <audio data-key="72" src="sounds/pew.wav"></audio>
-  <audio data-key="74" src="sounds/pew.wav"></audio>
-  <audio data-key="75" src="sounds/pew.wav"></audio>
-  <audio data-key="76" src="sounds/pew.wav"></audio>
+  <audio id="65" src="sounds/pew.wav"></audio>
+  <audio id="83" src="sounds/pew.wav"></audio>
+  <audio id="68" src="sounds/pew.wav"></audio>
+  <audio id="70" src="sounds/pew.wav"></audio>
+  <audio id="71" src="sounds/pew.wav"></audio>
+  <audio id="72" src="sounds/pew.wav"></audio>
+  <audio id="74" src="sounds/pew.wav"></audio>
+  <audio id="75" src="sounds/pew.wav"></audio>
+  <audio id="76" src="sounds/pew.wav"></audio>
 
 <script>
     $(".key").hover(
@@ -72,18 +112,36 @@
         }
     )
 
+    console.log($("audio"));
+    var testObj = $("audio");
+
+    var testLoop = function(obj) {
+      for( i = 0; i < obj.length; i++ ) {
+
+        /*var findTest = $(obj[i]).find('id');
+        console.log(`.find(${obj[i]}) results in id ${findTest}`);*/
+
+        var attrTest = $(obj[i]).attr('id');
+        console.log(`.find(${obj[i]}) results in id ${attrTest}`);
+        
+      }
+    }
+    testLoop(testObj);
+
     var play = function(res) {
-        var userKey = res.attr("data-key");
+        console.log(`the res is ${JSON.stringify(res)}`)
+        var userKey = res.attr("id"); //THIS WORKS - GETS ID OF BUTTON
         console.log(`user selected sound #${userKey}`);
-        var audioKey = $("audio").find(`[data-key=${userKey}]`);
-        console.log(`the corresponding audio is #${audioKey}`);
+        var audioKey = $("audio").attr('id'); //THIS DOESN'T WORK - GETS FIRST ID (65);
+        var audio = JSON.stringify(audioKey);
+        console.log(`the stringified audio is ${audio}`);
+        //console.log(`the corresponding audio is #${audioKey}`);
         if (audioKey == userKey) {
             console.log(`play sound: #${audioKey}`);
             audioKey.play();
         } else {
             console.log("error");
-        }
-        
+        }  
     }
 </script>
 
@@ -97,7 +155,7 @@ ERR 2: sound doesn't play
     A. console log to test -> audioKey is ALWAYS #65
     B. set audioKey attr. == userKey -> audioKey is 'undefined'
     C. use '[attribute=value]' & .find() jQuery method -> returns [object Object]
-    D. 
+    D. use $("audio").attr("id"); & JSON.stringify() -> audio is ALWAYS 65
 
 
 
@@ -111,4 +169,10 @@ ERR 1: JQUERY '$' not recognized
 
 
 http://keycode.info/
+---------------------------------------------------------------->
+
+<!------------------------OLD-TEST-CODE-------------------------
+
+
+
 ---------------------------------------------------------------->

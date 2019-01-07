@@ -1,0 +1,32 @@
+//  ***** Casio SA-10.sf2 - POP LEAD *****
+//  Soundfont converted using sfZed
+//  SoundFont version 2.1
+//  E-mu 10K1
+//  For SynthFont Viena
+//  Using SynthFont Viena
+//  Copyright SynthFont Viena
+//  Created 5.5.2009 0:35:52
+//  By SynthFont Viena
+
+
+<group>
+loop_mode=loop_continuous
+ampeg_release=2
+
+<region>
+sample=popleadG1.wav
+lokey=f2
+hikey=c3
+pitch_keycenter=g2
+
+<region>
+sample=popleadG2.wav
+lokey=c#3
+hikey=c4
+pitch_keycenter=g3
+
+<region>
+sample=popleadG3.wav
+lokey=c#4
+hikey=c5
+pitch_keycenter=g4

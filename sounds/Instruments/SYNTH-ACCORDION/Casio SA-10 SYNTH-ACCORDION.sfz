@@ -1,0 +1,31 @@
+//  ***** Casio SA-10.sf2 - SYNTH-ACCORDION *****
+//  Soundfont converted using sfZed
+//  SoundFont version 2.1
+//  E-mu 10K1
+//  For SynthFont Viena
+//  Using SynthFont Viena
+//  Copyright SynthFont Viena
+//  Created 5.5.2009 0:35:52
+//  By SynthFont Viena
+
+
+<group>
+loop_mode=loop_continuous
+
+<region>
+sample=synthaccordionG1.wav
+lokey=f2
+hikey=c3
+pitch_keycenter=g2
+
+<region>
+sample=synthaccordionG2.wav
+lokey=c#3
+hikey=c4
+pitch_keycenter=g3
+
+<region>
+sample=synthaccordionG3.wav
+lokey=d3
+hikey=c5
+pitch_keycenter=g4

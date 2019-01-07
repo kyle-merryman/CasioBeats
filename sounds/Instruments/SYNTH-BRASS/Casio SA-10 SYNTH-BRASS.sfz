@@ -1,0 +1,30 @@
+//  ***** Casio SA-10.sf2 - SYNTH-BRASS *****
+//  Soundfont converted using sfZed
+//  SoundFont version 2.1
+//  E-mu 10K1
+//  For SynthFont Viena
+//  Using SynthFont Viena
+//  Copyright SynthFont Viena
+//  Created 5.5.2009 0:35:52
+//  By SynthFont Viena
+
+
+<group>
+loop_mode=loop_continuous
+
+<region>
+sample=synthbrassC2.wav
+lokey=f2
+hikey=g3
+pitch_keycenter=c3
+
+<region>
+sample=synthbrassC3.wav
+lokey=g#3
+hikey=g4
+
+<region>
+sample=synthbrassC4.wav
+lokey=g4
+hikey=c5
+pitch_keycenter=c5
